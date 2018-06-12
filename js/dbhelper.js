@@ -1,4 +1,52 @@
 /**
+ * idb.
+ */
+const idbApp = (function() {
+  'use strict';
+
+  if(!navigator.serviceWorker) {
+    return Promise.resolve();
+  }
+
+  const dbPromise = idb.open('restaurantreviews', 1, function(upgradeDb) {
+    switch (upgradeDb.oldVersion) {
+      case 0:
+        upgradeDb.createObjectStore('restaurants', {
+          keyPath: 'id'
+        });
+    }
+  });
+
+  function addRestaurantById(restaurant) {
+    return dbPromise.then(function(db) {
+      const tx = db.transaction('restaurants', 'readwrite');
+      const store = tx.objectStore('restaurants');
+      store.put(restaurant);
+      return tx.complete;
+    }).catch(function(error) {
+      console.log(error);
+    });
+  }
+
+  function fetchRestaurantById(id) {
+    return dbPromise.then(function(db) {
+      const tx = db.transaction('restaurants');
+      const store = tx.objectStore('restaurants');
+      return store.get(parseInt(id));
+    }).then(function(restaurantObject) {
+      return restaurantObject;
+    }).catch(function(error) {
+      console.log(error);
+    });
+  }
+
+  return {
+    dbPromise: (dbPromise),
+    addRestaurantById: (addRestaurantById),
+    fetchRestaurantById: (fetchRestaurantById),
+  };
+})();
+/**
  * Common database helper functions.
  */
 class DBHelper {
@@ -32,19 +80,30 @@ class DBHelper {
    */
   static fetchRestaurantById(id, callback) {
     // fetch all restaurants with proper error handling.
+    const idbRestaurant = idbApp.fetchRestaurantById(id);
+    idbRestaurant.then(function(idbRestaurantObject) {
+      if (idbRestaurantObject) {
+        //console.log("fetchRestaurantById");
+        callback(null, idbRestaurantObject);
+        return;
+      } else {
     DBHelper.fetchRestaurants((error, restaurants) => {
       if (error) {
         callback(error, null);
       } else {
         const restaurant = restaurants.find(r => r.id == id);
         if (restaurant) { // Got the restaurant
+          let idbMessages = idbApp.addRestaurantById(restaurant);
+          console.log(idbMessages);
           callback(null, restaurant);
         } else { // Restaurant does not exist in the database
           callback('Restaurant does not exist', null);
+          }
         }
-      }
-    });
-  }
+      });
+    }
+  });
+}
 
   /**
    * Fetch restaurants by a cuisine type with proper error handling.

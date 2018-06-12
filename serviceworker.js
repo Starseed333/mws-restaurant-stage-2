@@ -16,9 +16,10 @@ const cached_urls = [
   'img/Pizza.webp',
   'img/Round_table_restaurant.webp',
   'img/Table_with_Grill.webp',
-  'js/dbhelper.webp',
-  'js/main.webp',
-  'js/restaurant_info.webp',
+  'js/dbhelper.js',
+  'js/main.js',
+  'js/restaurant_info.js',
+  'js/idb.js'
 ]
 
 // cache
