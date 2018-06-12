@@ -108,7 +108,7 @@ nav h1 a {
   display: grid;
 }
 /* ====================== Map ====================== */
-#map {
+#mapid {
   height: 400px;
   width: 100%;
   background-color: #ccc;
