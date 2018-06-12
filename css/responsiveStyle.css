@@ -49,7 +49,7 @@
   .inside #maincontent{
     grid-template-columns: 40% 60%;
   }
-  .inside #mapid {
+  .inside #map {
     height: 100%;
   }
 }
