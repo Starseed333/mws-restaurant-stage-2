@@ -14,7 +14,7 @@ body {
 }
 ul, li {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 10pt;
+	font-size: 16pt;
 	color: #333;
 }
 a {
@@ -92,9 +92,9 @@ nav h1 a {
 
 /* Add a color to all links inside the list */
 #breadcrumb li a {
-    color: #0275d8;
+    color: orange;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 /* Add a color on mouse-over */
@@ -238,7 +238,7 @@ nav h1 a {
   margin-left: auto;
 }
 #restaurant-img {
-	width: 100%;
+  width: 100%;
 }
 #restaurant-address {
   font-size: 12pt;
@@ -254,7 +254,7 @@ nav h1 a {
   padding: 2px 0;
   text-align: center;
   text-transform: uppercase;
-	width: 100%;
+  width: 100%;
 }
 #restaurant-container{
   justify-content: center;
