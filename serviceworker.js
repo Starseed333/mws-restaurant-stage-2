@@ -5,21 +5,20 @@ const cached_urls = [
   'restaurant.html',
   'css/styles.css',
   'css/responsiveStyle.css',
-  'data/restaurants.json',
-  'img/Busy_Restaurant.webp',
-  'img/Empty_Restaurant.webp',
-  'img/Outdoor_sign.webp',
-  'img/Outside_Burger_Restaurant.webp',
-  'img/Outside_Restaurant.webp',
-  'img/People_Eating.webp',
-  'img/People_sitting_Restaurant.webp',
-  'img/Pizza.webp',
-  'img/Round_table_restaurant.webp',
-  'img/Table_with_Grill.webp',
+  'img/1.webp',
+  'img/2.webp',
+  'img/3.webp',
+  'img/4.webp',
+  'img/5.webp',
+  'img/6.webp',
+  'img/7.webp',
+  'img/8.webp',
+  'img/9.webp',
+  'img/undefined.webp',
+  'js/idb.js',
   'js/dbhelper.js',
   'js/main.js',
-  'js/restaurant_info.js',
-  'js/idb.js'
+  'js/restaurant_info.js'
 ]
 
 // cache
