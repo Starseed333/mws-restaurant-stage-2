@@ -2,38 +2,39 @@
 /* CSS Document */
 
 body,td,th,p{
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 10pt;
-	color: #333;
-	line-height: 1.5;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+  color: #333;
+  line-height: 1.5;
 }
 body {
-	background-color: #fdfdfd;
-	margin: 0;
+  background-color: #fdfdfd;
+  margin: 0;
   position:relative;
 }
 ul, li {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 16pt;
-	color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #333;
+  font-weight: 400;
 }
 a {
-	color: orange;
-	text-decoration: none;
+  color: #EE7600;
+  text-decoration: none;
 }
 a:hover, a:focus {
-	color: #3397db;
-	text-decoration: none;
+  color: #3397db;
+  text-decoration: none;
 }
 a img{
-	border: none 0px #fff;
+  border: none 0px #fff;
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0 0 20px;
 }
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
 #maincontent {
   background-color: #f3f3f3;
@@ -48,10 +49,21 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   text-align: center;
   text-transform: uppercase;
 }
-.hidden {
-  font-size: 0;
+.skip-link {
+  position: absolute;
+  top: -300px;
+  left: 0;
+  background: #BF1722;
+  color: white;
+  padding: 8px;
+  font-size: 1em;
+  font-weight: 600;
+  z-index: 100;
 }
-
+.skip-link:focus {
+  top: 0;
+  color: white;
+}
 /* ====================== Navigation ====================== */
 nav {
   display: grid;
@@ -65,7 +77,7 @@ nav h1 {
 }
 nav h1 a {
   color: #fff;
-  font-size: 14pt;
+  font-size: 20px;
   font-weight: 200;
   letter-spacing: 10px;
   text-transform: uppercase;
@@ -108,6 +120,9 @@ nav h1 a {
   display: grid;
 }
 /* ====================== Map ====================== */
+#map-container {
+  width: 100%;
+}
 #map {
   height: 400px;
   width: 100%;
@@ -121,13 +136,12 @@ nav h1 a {
   height: auto;
   background-color: #3397DB;
   justify-content: center;
-  padding: .5rem 0 .5rem;
 }
 .filter-options h2 {
   padding: 1rem 0 .5rem;
   color: white;
-  font-size: 1rem;
-  font-weight: normal;
+  font-size: 18px;
+  font-weight: bold;
   line-height: 1;
   margin: 0 20px;
 }
@@ -135,12 +149,19 @@ nav h1 a {
   background-color: white;
   border: 1px solid #fff;
   font-family: Arial,sans-serif;
-  font-size: 11pt;
+  font-size: 0.9em;
   height: 35px;
   letter-spacing: 0;
   margin: 10px;
   padding: 0 10px;
   width: 200px;
+}
+#cuisines-select:focus,
+#neighborhoods-select:focus {
+  text-decoration: underline;
+  box-shadow: 2px 2px 10px white;
+  outline: 2px solid gray;
+  color: #3397DB;
 }
 
 /* ====================== Restaurant Listing ====================== */
@@ -148,34 +169,35 @@ nav h1 a {
   background-color: #f3f3f3;
   list-style: outside none none;
   margin: 0;
-  padding: 30px 15px 60px;
+  padding: 0;
   text-align: center;
-  display: grid;
-  grid-gap: 2em;
-  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 #restaurants-list li {
   background-color: #fff;
   border: 2px solid #ccc;
   font-family: Arial,sans-serif;
-  /* margin: 15px; */
+  margin: 0;
   min-height: 380px;
-  padding: 0 30px 25px;
+  padding: 0.5em;
   text-align: left;
-  width: 400px;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
   display: block;
   margin: 0;
   max-width: 100%;
-  min-height: 248px;
-  min-width: 100%;
 }
-#restaurants-list li h1 {
+#restaurants-list li a h1 {
   color: #f18200;
   font-family: Arial,sans-serif;
-  font-size: 14pt;
+  font-size: 1.2em;
   font-weight: 200;
   letter-spacing: 0;
   line-height: 1.3;
@@ -184,10 +206,10 @@ nav h1 a {
 }
 #restaurants-list p {
   margin: 0;
-  font-size: 11pt;
+  font-size: 0.9em;
 }
-#restaurants-list li a {
-  background-color: orange;
+#restaurants-list .button {
+  background-color: #EE7600;
   border-bottom: 3px solid #eee;
   color: #fff;
   display: inline-block;
@@ -197,6 +219,11 @@ nav h1 a {
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+}
+#restaurants-list li a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 /* ====================== Restaurant Details ====================== */
@@ -314,3 +341,4 @@ nav h1 a {
 #restaurant-hours td {
   color: #666;
 }
+
