@@ -23,7 +23,7 @@ Most of the code in this project has been written to the ES6 JavaScript specific
 ## Project Overview: Stage 2
 ## Usage
 #### Server Link
-[Server](https://github.com/Starseed333/mws-restaurant-stage-server)
+[Access Server Here](https://github.com/Starseed333/mws-restaurant-stage-server)
 #### Get Restaurants
 ```
 curl "http://localhost:1337/restaurants"
