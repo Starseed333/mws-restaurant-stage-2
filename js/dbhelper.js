@@ -212,7 +212,7 @@ class DBHelper {
     return (`/img/${restaurant.photograph}.webp`);
   }
   static imageALTForRestaurant(restaurant) {
-    return (`${restaurant.alt}`);
+    return (`${restaurant.alt_text}`);
   }
 
 
